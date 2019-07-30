@@ -1,8 +1,20 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+.head {
+  width: 100%;
+  height: 270rpx;
+  background-color: rgba(7, 17, 27, 0.5);
+  color: red;
 }
-.log-item {
-  margin: 10rpx;
+.headImg{
+  width:128rpx;
+  height:128rpx;
+}
+.yi{
+  padding-top: 48rpx;
+  padding-left: 48rpx;
+  padding-bottom:36rpx;
+}
+.er{
+  width:100%;
+  height: 56rpx;
+   background-color: rgba(7, 17, 27, 0.2);
 }
