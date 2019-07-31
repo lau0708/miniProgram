@@ -5,15 +5,36 @@
   </block> -->
   <view class="head">
     <view class='yi'>
-      <view>
-        <image src='../../img/1.jpg' class='headImg'></image>
+      <view class='headLeft'>
+        <view>
+          <image src='../../img/1.jpg' class='headImg'></image>
+        </view>
+        <view class='title'>
+          <view class='title1'>
+            <text class="txt1">品牌</text>
+            <text class="txt2">粥品香坊(大运村)</text>
+          </view>
+          <view class='title2'>蜂鸟专送/38分钟内送达</view>
+          <view class='title3'>
+            <text class='txt3'>减</text>
+            <text class="txt4">在线支付满28减5,满50减10</text>
+          </view>
+        </view>
       </view>
-      <view>345</view>
-      <view></view>
-
+      <view>
+        <view class='headRight'>5个></view>
+      </view>
     </view>
-    <view class='er'></view>
-
+    <view class='er'>
+      <text class='er-gonggao'>公告</text>
+      <text class='er-jieshao'>粥品香坊其烹饪粥料的秘方源于中国千年古法，再融合现代制作工艺，...  ></text>
+    </view>
+    <!-- tab键 -->
+<view class="tab">
+<text class='txt1'>商品</text>
+<text class='txt2'>评价</text>
+<text class='txt3'>商家</text>
+</view>
 
   </view>
 </view>
