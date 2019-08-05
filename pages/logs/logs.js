@@ -1,15 +1,27 @@
 //logs.js
 const util = require('../../utils/util.js')
+//http.js
+import { GoodsModel} from "../../models/goods.js";
+let good = new GoodsModel();
 
 Page({
   data: {
-    logs: []
+   arr:[]
   },
   onLoad: function () {
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
+    good.getList().then(res=>{
+      var list=res.goods;
+      console.log(list)
+      this.setData({
+        arr:list
       })
     })
-  }
+  },
+  //事件处理函数
+  bindViewTap: function () {
+    wx.switchTab({
+      url: '../shop/shop'
+    })
+  },
+  
 })
