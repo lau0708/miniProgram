@@ -1,0 +1,44 @@
+<view class='detail'>
+<!-- 内容部分 -->
+  <view class='con'>
+    <view class='detail-img'>
+      <image src="{{detail.image}}" class='img'></image>
+    </view>
+    <!-- 文字内容部分  -->
+    <view class='con-txt'>
+        <!-- 名称加入购物车 -->
+      <view class='detail-main'>
+        <text class='main-name'>{{detail.name}}</text>
+        <!-- 月售，好评 -->
+        <view class='main-onsale'>
+          <text class='onsale'>{{detail.name}}</text>
+          <text class='good'>{{detail.name}}</text>
+        </view>
+        <!-- 价格 -->
+        <view class='main-pic'>
+          <view class='pic-price'>
+            <text class='pic-xian'>
+              <text class='price-fu'>￥</text>
+              <text class='price-xian'>{{detail.price}}</text>
+            </text>
+            <text class='pic-yuan'>￥{{detail.price}}</text>
+          </view>
+          <view class='pic-cart'>加入购物车</view> 
+        </view>
+      </view>
+      <!-- 空  -->
+      <!-- <view class='null'></view> -->
+      <!-- 商品介绍 -->
+      <view class='introduce'>
+        <view class='int-name'>商品介绍</view>
+        <text class='int-con'>{{detail.info}}</text>
+      </view>
+      <!-- 商品评价 -->
+      <view class='evaluate'>
+        <view class='eva-name'>商品评价</view>
+      </view>
+    </view>
+  </view>
+  <view class='footer'>footer</view>
+
+</view>
