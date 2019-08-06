@@ -6,5 +6,10 @@ class GoodsModel extends HTTP {
       url: 'goods',
     })
   }
+  commentList(){
+    return this.request({
+      url:"ratings"
+    })
+  }
 }
 export { GoodsModel }
