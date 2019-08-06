@@ -7,20 +7,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail:{}
+    detail:{},
+    menuTapCurrent: 0,
+    pingjia:[],
+    all:[],
+    tui: [],
+    tu: [],
   },
+  // 点击按钮选项卡切换
+  menuTap: function (e) {
+    
+    var current = e.currentTarget.dataset.current;//获取到绑定的数据
+    //改变menuTapCurrent的值为当前选中的menu所绑定的数据
+    this.setData({
+      menuTapCurrent: current,
+    });
 
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that =this;
     goodsModel.goodsList().then(res => {
       console.log(res.goods[0].foods[0])
       let arr = res.goods[0].foods[0]
+      let ping = res.goods[0].foods[0].ratings
       this.setData({detail:arr});
+      this.setData({pingjia:ping})
+   
+  
     })
-
   },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
