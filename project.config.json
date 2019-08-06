@@ -9,6 +9,7 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+<<<<<<< HEAD
 		"coverView": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
@@ -19,6 +20,10 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		}
+=======
+		"autoAudits": false,
+		"checkInvalidKey": true
+>>>>>>> ab1cdcd264c55e771768ca4a3e538cad4d9160ab
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.7",

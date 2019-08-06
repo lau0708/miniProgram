@@ -1,40 +1,97 @@
-<!--logs.wxml-->
+<!-- logs.wxml -->
 <view class="home">
   <!-- <block wx:for="{{logs}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block> -->
-  <view class="head">
-    <view class='yi'>
-      <view class='headLeft'>
+  <!-- 头部第一部分 -->
+  <view class='one'>
+    <view class="head">
+      <view class='yi'>
+        <view class='headLeft'>
+          <view>
+            <image src='{{arr[0].foods[0].image}}' class='headImg'></image>
+          </view>
+          <view class='title'>
+            <view class='title1'>
+              <text class="txt1">品牌</text>
+              <text class="txt2">粥品香坊(大运村)</text>
+            </view>
+            <view class='title2'>蜂鸟专送/38分钟内送达</view>
+            <view class='title3'>
+              <text class='txt3'>减</text>
+              <text class="txt4">在线支付满28减5,满50减10</text>
+            </view>
+          </view>
+        </view>
         <view>
-          <image src='../../img/1.jpg' class='headImg'></image>
-        </view>
-        <view class='title'>
-          <view class='title1'>
-            <text class="txt1">品牌</text>
-            <text class="txt2">粥品香坊(大运村)</text>
-          </view>
-          <view class='title2'>蜂鸟专送/38分钟内送达</view>
-          <view class='title3'>
-            <text class='txt3'>减</text>
-            <text class="txt4">在线支付满28减5,满50减10</text>
-          </view>
+          <view class='headRight'>5个></view>
         </view>
       </view>
-      <view>
-        <view class='headRight'>5个></view>
+      <view class='er'>
+        <text class='er-gonggao'>公告</text>
+        <text class='er-jieshao'>粥品香坊其烹饪粥料的秘方源于中国千年古法，再融合现代制作工艺，...  ></text>
       </view>
-    </view>
-    <view class='er'>
-      <text class='er-gonggao'>公告</text>
-      <text class='er-jieshao'>粥品香坊其烹饪粥料的秘方源于中国千年古法，再融合现代制作工艺，...  ></text>
     </view>
     <!-- tab键 -->
-<view class="tab">
-<text class='txt1'>商品</text>
-<text class='txt2'>评价</text>
-<text class='txt3'>商家</text>
-</view>
-
+    <view class="tab">  
+      <view class="txt1" bindtap='switch' data-num="0">商品</view>
+      <view class="txt2" bindtap='switch' data-num="1">评价</view>
+      <view class="txt3" bindtap='switch'  data-num="2">商家</view>
+    </view>
+  </view>
+  <!-- 身体主要信息 -->
+  <!-- 商品信息 -->
+  <comment wx:if="{{flag2}}"></comment>
+  <merchant wx:if="{{flag3}}"></merchant>
+  <view class='shop-mes' wx:if="{{flag1}}">
+  
+  <!-- <view wx:if="{{flag1}}"> -->
+    <view class="box1">
+      <view class="con-left">
+        <view class="box1-wrap">
+          <view class="" wx:for="{{arr}}" wx:for-item="item" wx:key="index">{{item.name}}</view>
+        </view>      
+      </view>
+    </view>
+    <view class="content">
+      <view class='wrap'>
+        <view class="con-right">
+          <view class="con-list" wx:for="{{arr}}" wx:for-item="item" wx:key="index">
+            <view class="con-title">{{item.name}}</view>
+            <view class="shop-list" wx:for="{{item.foods}}" wx:for-item="val" wx:key="index">
+              <view class="left-tu">
+                <image class="img" src="{{val.image}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+              </view>
+              <view class="right-list" hover-class="none" hover-stop-propagation="false">
+                <view class="list-title">{{val.name}}</view>
+                <view class="desc">{{val.description}}</view>
+                <view class="">
+                  <text class="yueshou">月售{{val.sellCount}}份</text>
+                  <text class="haoping">好评率{{val.rating}}%</text>
+                </view>
+                <view class="price">
+                  <text class="price-txt1">￥</text>
+                  <text class="price-txt2">{{val.price}}</text>
+                  <text class="price-txt3" wx:if="{{val.oldPrice}}">￥{{val.oldPrice}}</text>
+                  <text class="jia">+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      <!-- </view> -->
+    </view>
+    </view>
+  </view>
+  <!-- 尾部信息 -->
+  <view class='footer'>
+    <view class='shopicon'>
+      <icon class='fa fa-shopping-cart'></icon>
+    </view>
+    <view class="foot-Left">
+      <view class='price'>￥0</view>
+      <view class="peiyunfei">另需配运费4元</view>
+    </view>
+    <view class="foot-Right">20元起送</view>
   </view>
 </view>
