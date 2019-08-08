@@ -1,3 +1,77 @@
 <view class='shop-comment'>
-委托方5r87{{num}}
+  <view class='yi'>
+    <view class='yi-left'>
+      <view class='yi-left-yi'>3.9</view>
+      <view class='yi-left-er'>综合评分</view>
+      <view class='yi-left-san'>高于周边商家69.2%</view>
+
+    </view>
+    <view class='yi-right'>
+      <view>
+        <text class='txt1'>服务态度</text>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <text class='txt2'>5.0</text>
+      </view>
+      <view class='dier'>
+        <text class="txt1">服务态度</text>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <image src="../../../assets/img/star36_on@2x.png"></image>
+        <text class='txt2'>5.0</text>
+      </view>
+      <view>送达时间
+        <text class='daoda-time'>44分钟</text>
+      </view>
+    </view>
+  </view>
+  <!-- 灰色分界线 -->
+  <view class="grey"></view>
+  <!-- 评价分类 -->
+  <view class='comment-sort'>
+    <text class='txt1'>全部</text>
+    <text class='txt2'>满意</text>
+    <text class='txt3'>不满意</text>
+  </view>
+  <!-- 勾选想看内容 -->
+  <view class="sel">
+    <text class="duigou">√</text>
+    <text class='txt'>只看有内容的评价</text>
+  </view>
+  <!-- 评论 -->
+  <view class='comment-list'>
+    <view class="comment" wx:for="{{list}}" wx:for-item="item" wx:key="index">
+      <!-- 头像 -->
+      <view>
+        <image src="{{item.avatar}}" class='touimg'></image>
+      </view>
+      <!-- 评论 -->
+      <view>
+        <view class='comment-yi'>
+          <view>{{item.username}}</view>
+          <view>{{item.rateTime}}</view>
+        </view>
+        <!-- 五星评级 -->
+        <view class='star'>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <text wx:if="{{item.deliveryTime}}">{{item.deliveryTime}}分钟送达</text>
+        </view>
+        <view class='text'>
+        {{item.text}}
+        </view>
+        <view class='kuanshi'>
+          <view wx:for="{{item.recommend}}" wx:for-item="val" wx:key="index">{{val}}</view>        
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
