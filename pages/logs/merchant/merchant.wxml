@@ -1,4 +1,80 @@
 <!--pages/logs/merchant/merchant.wxml-->
-<text>
-商家
-</text>
+<view class="shop-merchant">
+  <view class="merchant-yi">
+    <view>
+      <view>
+        <view class="title1">粥品香坊(大运村)</view>
+        <view class="star">
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <image src="../../../assets/img/star36_on@2x.png"></image>
+          <text class='txt1'>(661)</text>
+          <text class="txt2">月售690单</text>
+        </view>
+      </view>
+      <view>
+
+      </view>
+    </view>
+    <view>
+      <view>
+        <view class="qisongprice">起送价</view>
+        <view class="price">
+          <text class="txt1">20</text>
+          <text class="txt2">元</text>
+        </view>
+      </view>
+      <view>
+        <view class="qisongprice">商家配送</view>
+        <view class="price">
+          <text class="txt1">4</text>
+          <text class="txt2">元</text>
+        </view>
+      </view>
+      <view>
+        <view class="qisongprice">平均配送时间</view>
+        <view class="price">
+          <text class="txt1">39</text>
+          <text class="txt2">分钟</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 灰色横条 -->
+  <view class="grey"></view>
+  <!-- 公告与活动 -->
+  <view class="gonggao">
+    <text class="gonggao-txt">公告与活动</text>
+    <view class="bulletin">
+      {{list.bulletin}}
+    </view>
+    <!--满减活动-->
+    <view class="manjian-yi" wx:for="{{list.supports}}" wx:for-item="item" wx:index="index">
+      <text>{{item.description}}</text>
+    </view>
+   
+  </view>
+   <!-- 灰色横条 -->
+    <view class="grey"></view>
+    <!-- 商家实景 -->
+    <view class="shangjia">
+      <text class="txt1">商家实景</text>
+      <view class="tupian">
+        <view wx:for="{{list.pics}}" wx:for-item="item" wx:index="index">
+          <image src="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+     <!-- 灰色横条 -->
+  <view class="grey"></view>
+  <!-- 商家信息 -->
+  <view class="shop-detail">
+    <text class="txt1">商家信息</text>
+    <view wx:for="{{list.infos}}" wx:for-item="item" wx:index="index" class="detail1">
+    {{item}}
+    </view>
+  </view>
+
+</view>

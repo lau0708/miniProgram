@@ -33,10 +33,10 @@
       </view>
     </view>
     <!-- tab键 -->
-    <view class="tab">  
-      <view class="txt1" bindtap='switch' data-num="0">商品</view>
-      <view class="txt2" bindtap='switch' data-num="1">评价</view>
-      <view class="txt3" bindtap='switch'  data-num="2">商家</view>
+    <view class="tab">
+      <view class="txt1" bindtap='switch' data-num="0" class="{{num==0?'color':''}}">商品</view>
+      <view class="txt2" bindtap='switch' data-num="1" class="{{num==1?'color':''}}">评价</view>
+      <view class="txt3" bindtap='switch' data-num="2" class="{{num==2?'color':''}}">商家</view>
     </view>
   </view>
   <!-- 身体主要信息 -->
@@ -44,43 +44,46 @@
   <comment wx:if="{{flag2}}"></comment>
   <merchant wx:if="{{flag3}}"></merchant>
   <view class='shop-mes' wx:if="{{flag1}}">
-  
-  <!-- <view wx:if="{{flag1}}"> -->
+
     <view class="box1">
-      <view class="con-left">
-        <view class="box1-wrap">
-          <view class="" wx:for="{{arr}}" wx:for-item="item" wx:key="index">{{item.name}}</view>
-        </view>      
-      </view>
+      <scroll-view scroll-y="true" style="height:100%;" scroll-into-view="{{contentActive}}">
+        <view class="con-left">
+          <view class="box1-wrap">
+            <view class="mingzi {{navActive===index?'active':''}}" catchtap='chooseType' data-id='type{{index}}' data-index="{{index}}" wx:for="{{arr}}" wx:for-item="item" wx:key="index" >{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view>
     </view>
     <view class="content">
       <view class='wrap'>
-        <view class="con-right">
-          <view class="con-list" wx:for="{{arr}}" wx:for-item="item" wx:key="index">
-            <view class="con-title">{{item.name}}</view>
-            <view class="shop-list" wx:for="{{item.foods}}" wx:for-item="val" wx:key="index">
-              <view class="left-tu">
-                <image class="img" src="{{val.image}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-              </view>
-              <view class="right-list" hover-class="none" hover-stop-propagation="false">
-                <view class="list-title">{{val.name}}</view>
-                <view class="desc">{{val.description}}</view>
-                <view class="">
-                  <text class="yueshou">月售{{val.sellCount}}份</text>
-                  <text class="haoping">好评率{{val.rating}}%</text>
+        <scroll-view scroll-y="true" style='height:{{conHeight}}rpx;' scroll-into-view="{{contentActive}}" scroll-with-animation="true"      bindscroll="onScroll">
+          <view class="con-right">
+            <view class="con-list" wx:for="{{arr}}" wx:for-item="item" wx:key="index" wx:for-index="index">
+              <view class="con-title" id='type{{index}}'>{{item.name}}</view>
+              <view class="shop-list" wx:for="{{item.foods}}" wx:for-item="val" wx:key="index">
+                <view class="left-tu">
+                  <image class="img" src="{{val.image}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
                 </view>
-                <view class="price">
-                  <text class="price-txt1">￥</text>
-                  <text class="price-txt2">{{val.price}}</text>
-                  <text class="price-txt3" wx:if="{{val.oldPrice}}">￥{{val.oldPrice}}</text>
-                  <text class="jia">+</text>
+                <view class="right-list" hover-class="none" hover-stop-propagation="false">
+                  <view class="list-title">{{val.name}}</view>
+                  <view class="desc">{{val.description}}</view>
+                  <view class="">
+                    <text class="yueshou">月售{{val.sellCount}}份</text>
+                    <text class="haoping">好评率{{val.rating}}%</text>
+                  </view>
+                  <view class="price">
+                    <text class="price-txt1">￥</text>
+                    <text class="price-txt2">{{val.price}}</text>
+                    <text class="price-txt3" wx:if="{{val.oldPrice}}">￥{{val.oldPrice}}</text>
+                    <text class="jia">+</text>
+                  </view>
                 </view>
               </view>
             </view>
           </view>
-        </view>
-      <!-- </view> -->
-    </view>
+        </scroll-view>
+        <!-- </view> -->
+      </view>
     </view>
   </view>
   <!-- 尾部信息 -->

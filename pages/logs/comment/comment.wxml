@@ -65,8 +65,11 @@
           <image src="../../../assets/img/star36_on@2x.png"></image>
           <text wx:if="{{item.deliveryTime}}">{{item.deliveryTime}}分钟送达</text>
         </view>
-        <view class='text'>
+        <view class='text' wx:if="{{item.text}}">
         {{item.text}}
+        </view>
+         <view class='text' wx:else>
+        用户暂无评价
         </view>
         <view class='kuanshi'>
           <view wx:for="{{item.recommend}}" wx:for-item="val" wx:key="index">{{val}}</view>        
