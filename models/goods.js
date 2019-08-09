@@ -1,4 +1,4 @@
-﻿import { HTTP } from '../utils/http.js'
+import { HTTP } from '../utils/http.js'
 
 class GoodsModel extends HTTP {
   //商品
@@ -15,6 +15,12 @@ class GoodsModel extends HTTP {
   commentList(){
     return this.request({
       url:"ratings"
+    })
+  }
+  // 遮罩内容
+  zheList() {
+    return this.request({
+      url: "seller"
     })
   }
 }

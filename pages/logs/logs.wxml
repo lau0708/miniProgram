@@ -22,14 +22,14 @@
               <text class="txt4">在线支付满28减5,满50减10</text>
             </view>
           </view>
-        </view>
+        </view>·
         <view>
-          <view class='headRight'>5个></view>
+          <view class='headRight' bindtap='show'>5个></view>
         </view>
       </view>
-      <view class='er'>
+      <view class='er' bindtap='show'>
         <text class='er-gonggao'>公告</text>
-        <text class='er-jieshao'>粥品香坊其烹饪粥料的秘方源于中国千年古法，再融合现代制作工艺，...  ></text>
+        <text class='er-jieshao' >粥品香坊其烹饪粥料的秘方源于中国千年古法，再融合现代制作工艺，...  ></text>
       </view>
     </view>
     <!-- tab键 -->
@@ -94,4 +94,41 @@
     </view>
     <view class="foot-Right">20元起送</view>
   </view>
+  <!-- 遮罩 -->
+
 </view>
+  <view class="zhezhao" style="display:{{display}}">
+      <view class='zhezhao-bg'></view>
+      <view class='zhezhao-con'>
+      <view class='con-con'>
+        <view class='con-titile'>
+          {{zhelist.name}}
+        </view>
+        <view class='start'>
+          星星
+        </view>
+        <view class='con-headline'>
+         <text class='headline-xian'>———————</text> 
+         <text class='headline-title'>优惠信息</text>
+         <text class='headline-xian'>———————</text> 
+        </view>
+        <!-- 满减 -->
+        <view class='youhui'  wx:for="{{zhelist.supports}}" wx:for-item="item" wx:key="index">
+          <view class='youhui-con'>
+          {{item.description}}</view>
+        </view>
+        <!-- 商家公告 -->
+        <view class='con-headline'>
+         <text class='headline-xian'>———————</text> 
+         <text class='headline-title'>商家公告</text>
+         <text class='headline-xian'>———————</text> 
+        </view>
+        <view class='shop'>
+        {{zhelist.bulletin}}
+        </view>
+      </view>
+        <view  class='hide' bindtap="hide">
+          ×
+        </view>
+    </view>
+  </view>

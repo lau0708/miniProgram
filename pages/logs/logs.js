@@ -13,6 +13,9 @@ Page({
     flag1: true,
     flag2: false,
     flag3: false,
+    display:'',//控制遮罩层
+    //遮罩层数据
+    zhelist:[]
   },
   switch (e) {
     this.setData({
@@ -40,7 +43,20 @@ Page({
       })
     }
   },
+// 遮罩显示
+  show:function(){
+    this.setData({
+      display:"block"
+    })
+  },
+// 遮罩消失
+  hide:function(){
+    this.setData({
+    display:"none"
+    })
+  },
   onLoad: function() {
+    var that = this;
     good.getList().then(res => {
       var list = res.goods;
       // console.log(list);
@@ -48,7 +64,14 @@ Page({
         arr: list
       });
     });
-
+    //遮罩层数据
+    good.zheList().then(res => {
+      var list = res.seller;
+      console.log(list)
+      this.setData({
+        zhelist:list
+      })
+    });
   },
 
   //事件处理函数
