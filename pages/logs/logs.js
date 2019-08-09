@@ -1,9 +1,7 @@
 //logs.js
 const util = require("../../utils/util.js");
 //http.js
-import {
-  GoodsModel
-} from "../../models/goods.js";
+import { GoodsModel } from "../../models/goods.js";
 let good = new GoodsModel();
 
 Page({
@@ -13,57 +11,72 @@ Page({
     flag1: true,
     flag2: false,
     flag3: false,
-    contentActive: '', // 内容栏选中id
-    navActive: '', // 导航栏选中id
+    contentActive: "", // 内容栏选中id
+    navActive: "", // 导航栏选中id
+    display: "", //控制遮罩层
+    //遮罩层数据
+    zhelist: []
   },
-  switch (e) {
+  switch(e) {
     this.setData({
       num: e.target.dataset.num
     });
-    if(this.data.num==0){
-     
+    if (this.data.num == 0) {
       this.setData({
-        flag1:true,
-        flag2:false,
-        flag3:false
-      })
+        flag1: true,
+        flag2: false,
+        flag3: false
+      });
     }
     if (this.data.num == 1) {
       this.setData({
         flag1: false,
         flag2: true,
         flag3: false
-      })
+      });
     }
     if (this.data.num == 2) {
       this.setData({
         flag1: false,
         flag2: false,
         flag3: true
-      })
+      });
     }
+  },
+  // 遮罩显示
+  show: function() {
+    this.setData({
+      display: "block"
+    });
+  },
+  // 遮罩消失
+  hide: function() {
+    this.setData({
+      display: "none"
+    });
   },
   onLoad: function() {
     var _this = this;
     wx.getSystemInfo({
-      success: function (res) {
-        let windowHeight = (res.windowHeight * (750 / res.windowWidth)); //将高度乘以换算后的该设备的rpx与px的比例
+      success: function(res) {
+        let windowHeight = res.windowHeight * (750 / res.windowWidth); //将高度乘以换算后的该设备的rpx与px的比例
         // //console.log(windowHeight) //最后获得转化后得rpx单位的窗口高度
         _this.setData({
-          conHeight: windowHeight - 350 - 100,
-        })
+          conHeight: windowHeight - 350 - 100
+        });
       }
     });
+    var that = this;
     good.getList().then(res => {
       var list = res.goods;
       console.log(list);
-      for(var i in list){
-        list[i].id=i;
+      for (var i in list) {
+        list[i].id = i;
       }
       this.setData({
         arr: list
       });
-    // 获得每个元素据顶部的高度，组成一个数组，通过高度与scrollTop的对比来知道目前滑动到那个区域
+      // 获得每个元素据顶部的高度，组成一个数组，通过高度与scrollTop的对比来知道目前滑动到那个区域
       let heightArr = [];
       let h = 0;
       var _this = this;
@@ -71,45 +84,53 @@ Page({
       const query = wx.createSelectorQuery();
       // console.log(query.selectAll('.mingzi').boundingClientRect())
       //选择id
-      query.selectAll('.mingzi').boundingClientRect()
-      console.log(query)
-      query.exec(function (res) {
-        console.log(res)
+      query.selectAll(".mingzi").boundingClientRect();
+      console.log(query);
+      query.exec(function(res) {
+        console.log(res);
         //res就是 所有标签为con-list的元素的信息 的数组
-        res[0].forEach((item) => {
+        res[0].forEach(item => {
           h += item.height;
           heightArr.push(h);
-        })
+        });
         _this.setData({
           heightArr: heightArr
-        })
-        console.log(heightArr)
-      })
-
+        });
+        console.log(heightArr);
+      });
     });
-
- 
-
   },
   //点击导航栏时就可以通过小程序的方法拿到id和该项目的索引，并赋值
-  chooseType: function (e) { //分类选择
+  chooseType: function(e) {
+    //分类选择
     // console.log(e)
     let dataSet = e.currentTarget.dataset;
     this.setData({
       navActive: dataSet.index,
-      contentActive: dataSet.id,
-    })
+      contentActive: dataSet.id
+    });
     // console.log(this.data.navActive)
+    //遮罩层数据
+    good.zheList().then(res => {
+      var list = res.seller;
+      console.log(list);
+      this.setData({
+        zhelist: list
+      });
+    });
   },
-  onScroll: function (e) { 
+  onScroll: function(e) {
     const scrollTop = e.detail.scrollTop;
     const scorllArr = this.data.heightArr;
-    console.log("gundong", scrollTop)
-    console.log("Arr", scorllArr)
+    console.log("gundong", scrollTop);
+    console.log("Arr", scorllArr);
 
     const _this = this;
-    if (scrollTop >= scorllArr[scorllArr.length - 1] - (_this.data.conHeight / 2)) {
-      console.log("返回")
+    if (
+      scrollTop >=
+      scorllArr[scorllArr.length - 1] - _this.data.conHeight / 2
+    ) {
+      console.log("返回");
       return;
     } else {
       for (let i = 0; i < scorllArr.length; i++) {
@@ -117,17 +138,17 @@ Page({
           if (0 != _this.data.lastActive) {
             _this.setData({
               navActive: 0,
-              lastActive: 0,
-            })
+              lastActive: 0
+            });
           }
         } else if (scrollTop >= scorllArr[i - 1] && scrollTop < scorllArr[i]) {
           if (i != _this.data.lastActive) {
             _this.setData({
               navActive: i,
-              lastActive: i,
-            })
+              lastActive: i
+            });
           }
-          console.log(this.data.navActive)
+          console.log(this.data.navActive);
         }
       }
     }
@@ -141,5 +162,4 @@ Page({
       }
     });
   }
-
 });

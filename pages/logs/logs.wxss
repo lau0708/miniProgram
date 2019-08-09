@@ -47,8 +47,8 @@ page {
   margin-top: 4rpx;
   font-weight: 600;
 }
-.color{
-  color:red;
+.color {
+  color: red;
 }
 .title .txt2 {
   display: block;
@@ -139,21 +139,20 @@ page {
 }
 .tab .txt1 {
   color: rgb(240, 20, 20);
-
 }
 .tab .txt2,
 .tab .txt3 {
   color: rgb(77, 85, 93);
-
 }
 
 /* 商品信息 */
-.shop-mes,comment,merchant {
+.shop-mes,
+comment,
+merchant {
   flex: 1;
   overflow: auto;
- display: flex;
+  display: flex;
 }
-
 
 /* 尾部 */
 .footer {
@@ -221,10 +220,10 @@ page {
   flex-direction: column;
 }
 /* 隐藏滚动条 */
-::-webkit-scrollbar{
-width: 0;
-height: 0;
-color: transparent;
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 .con-left {
   overflow: auto;
@@ -326,6 +325,74 @@ color: transparent;
   text-align: center;
   line-height: 50rpx;
 }
-.active{
+.active {
   color: red;
+}
+/* 遮罩 */
+.zhezhao {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+.zhezhao-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 17, 27, 0.8);
+  filter: blur(10rpx);
+}
+.zhezhao-con {
+  box-sizing: border-box;
+  padding: 128rpx 72rpx;
+  position: absolute;
+  z-index: 51;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.con-title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.con-headline {
+  margin: 56rpx 0 48rpx;
+  font-size: 30rpx;
+}
+.headline-xian {
+  color: rgba(255, 255, 255, 0.2);
+}
+.headline-title {
+  margin: 0 24rpx;
+}
+.youhui {
+  text-align: left;
+  font-size: 24rpx;
+  font-weight: 200;
+  margin-left: 25rpx;
+}
+.youhui-con {
+  margin-bottom: 20rpx;
+}
+.shop {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  font-size: 24rpx;
+  font-weight: 200;
+  line-height: 48rpx;
+  text-align: left;
+}
+.hide {
+  width: 80%;
+  text-align: center;
+  font-size: 64rpx;
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 64rpx;
 }

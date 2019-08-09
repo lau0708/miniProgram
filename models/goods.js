@@ -1,28 +1,34 @@
-import { HTTP } from '../utils/http.js'
+import { HTTP } from "../utils/http.js";
 
 class GoodsModel extends HTTP {
   //商品
   goodsList() {
     return this.request({
-      url: 'goods'
-    })
+      url: "goods"
+    });
   }
   getList() {
     return this.request({
-      url: 'goods',
-    })
+      url: "goods"
+    });
   }
   //评论
-  commentList(){
+  commentList() {
     return this.request({
-      url:"ratings"
-    })
+      url: "ratings"
+    });
   }
   //商家
-  merchant(){
+  merchant() {
     return this.request({
-      url:"seller"
-    })
+      url: "seller"
+    });
+  }
+  // 遮罩内容
+  zheList() {
+    return this.request({
+      url: "seller"
+    });
   }
 }
-export { GoodsModel }
+export { GoodsModel };
