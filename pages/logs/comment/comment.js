@@ -1,23 +1,28 @@
 import { GoodsModel } from "../../../models/goods.js";
 let comment = new GoodsModel();
-
-//Page Object
-Page({
+//Component Object
+Component({
+  properties: {
+    myProperty: {
+      type: String,
+      value: "",
+      observer: function() {}
+    }
+  },
   data: {
-    list: []
+    list:[]
   },
-  //options(Object)
-  onLoad: function(options) {
-    console.log("dasssssiujk");
+  methods: {},
+  created: function() {
+    comment.commentList().then(res => {
+      this.setData({
+        list:res.ratings
+      })
+      console.log(this.data.list)
+    });
   },
-  onReady: function() {},
-  onShow: function() {},
-  onHide: function() {},
-  onUnload: function() {},
-  onPullDownRefresh: function() {},
-  onReachBottom: function() {},
-  onShareAppMessage: function() {},
-  onPageScroll: function() {},
-  //item(index,pagePath,text)
-  onTabItemTap: function(item) {}
+  attached: function() {},
+  ready: function() {},
+  moved: function() {},
+  detached: function() {}
 });

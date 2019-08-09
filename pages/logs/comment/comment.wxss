@@ -1,3 +1,160 @@
 .shop-comment{
-  color:red;
+  /* color:red; */
+}
+.yi{
+  display: flex;
+  height:214rpx;
+  padding: 36rpx 48rpx;
+  box-sizing:border-box;
+}
+.yi-left{
+  width: 275rpx;
+  /* background: red; */
+border-right:1px solid #e6e7e8;
+text-align: center;
+}
+.yi-right{
+  width:380rpx;
+  padding-left:48rpx;
+  box-sizing: border-box;
+}
+.yi-right .txt1{
+  margin-right:24rpx;
+}
+.yi-right .txt2{
+  color: #ffa126;
+  font-size:27rpx;
+}
+.dier{
+  margin-top:6rpx;
+  margin-bottom:6rpx;
+}
+.daoda-time{
+  font-size:24rpx;
+  color:#93999f;
+  margin-left:10rpx;
+}
+.yi-right>view image{
+  display: inline-block;
+  width:25rpx;
+  height:25rpx;
+  margin-right:5rpx;
+}
+.yi-left-yi{
+font-size:48rpx;
+color:#ff9900;
+line-height:56rpx;
+}
+.yi-left-er{
+  font-size:24rpx;
+  line-height:24rpx;
+  margin-top:12rpx;
+  margin-bottom:16rpx;
+}
+.yi-left-san{
+  font-size:20rpx;
+  color: #c3c6c9;
+}
+/* 灰色分界线 */
+.grey{
+  width:100%;
+  height:40rpx;
+  background: #f3f5f7;
+}
+/* 评价分类 */
+.comment-sort{
+  padding: 36rpx;
+  display: flex;
+  box-sizing: border-box;
+  border-bottom:1px solid #e6e7e8;
+}
+.comment-sort text{
+display: block;
+width:120rpx;
+height:60rpx;
+text-align: center;
+line-height:60rpx;
+margin-right: 20rpx;
+}
+.comment-sort .txt1{
+  background: #00a0dc;
+  color: white;
+}
+.comment-sort .txt2{
+  background: #ccecf8;
+  color: black;
+}
+.comment-sort .txt3{
+  background: #e9ebec;
+  color: black;
+}
+/* 勾选内容 */
+.sel{
+  display: flex;
+  padding: 36rpx;
+  box-sizing: border-box;
+  border-bottom:1px solid #e6e7e8;
+}
+.sel .duigou{
+  display: block;
+  width:40rpx;
+  height:40rpx;
+  border-radius:50px;
+  background: #b7bbbf;
+  color:white;
+  text-align: center;
+  line-height:40rpx;
+  font-size:25rpx;
+}
+.sel .txt{
+  font-size:30rpx;
+  color: #93999f;
+  margin-left:20rpx;
+}
+/* 评论 */
+.comment>view:nth-of-type(2){
+  margin-left:24rpx;
+}
+.comment{
+  width:100%;
+  height:262rpx;
+  border-bottom:1px solid #e6e7e8;
+  padding:36rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+/* 头像 */
+.touimg{
+  width:56rpx;
+  height:56rpx;
+  border-radius:50px;
+}
+.comment-yi{
+  width:550rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.star image{
+  width:21rpx;
+  height:21rpx;
+  border-radius:50px;
+}
+.deliveryTime{
+  font-size:20rpx;
+  color: rgb(147,153,159);
+}
+.kuanshi{
+  display: flex;
+}
+.text{
+  font-size:24rpx;
+}
+.kuanshi>view{
+  height:40rpx;
+  border:1px solid rgb(147,153,159);
+  text-align: center;
+  line-height:40rpx;
+  font-size:22rpx;
+  margin-left: 10rpx;
+  margin-top:20rpx;
 }
