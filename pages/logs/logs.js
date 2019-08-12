@@ -20,7 +20,9 @@ Page({
     zhelist: [],
     navActive: 0,
     shopdialog: false,
-    shopdetail: []
+    shopdetail: [],
+    //商家背景图片
+    bgimg:''
   },
   //购物车遮罩层显示隐藏
   shopDialogShow: function(e) {
@@ -83,6 +85,7 @@ Page({
       });
     }
   },
+  
   // 遮罩显示
   show: function() {
     this.setData({
@@ -109,7 +112,7 @@ Page({
     var that = this;
     good.getList().then(res => {
       var list = res.goods;
-      console.log(list);
+      // console.log(list);
       for (var i in list) {
         list[i].id = i;
         for (var j in list[i].foods) {
@@ -127,10 +130,15 @@ Page({
       //创建节点选择器
       const query = wx.createSelectorQuery();
       //选择id
+<<<<<<< HEAD
       query.selectAll(".con-list").boundingClientRect();
       console.log(query);
+=======
+      query.selectAll(".mingzi").boundingClientRect();
+      // console.log(query);
+>>>>>>> origin/master
       query.exec(function(res) {
-        console.log(res);
+        // console.log(res);
         //res就是 所有标签为con-list的元素的信息 的数组
         res[0].forEach(item => {
           h += item.height;
@@ -139,7 +147,7 @@ Page({
         _this.setData({
           heightArr: heightArr
         });
-        console.log(heightArr);
+        // console.log(heightArr);
       });
     });
   },
@@ -156,7 +164,8 @@ Page({
     //遮罩层数据
     good.zheList().then(res => {
       var list = res.seller;
-      console.log(list);
+      var img = res.seller.avatar;
+      console.log(img);
       this.setData({
         zhelist: list
       });
@@ -190,6 +199,10 @@ Page({
               lastActive: i
             });
           }
+<<<<<<< HEAD
+=======
+          // console.log(this.data.navActive);
+>>>>>>> origin/master
         }
       }
     }
@@ -201,7 +214,7 @@ Page({
     wx.navigateTo({
       url: "../detail/detail",
       success: function() {
-        console.log("132");
+        // console.log("132");
       }
     });
   }
