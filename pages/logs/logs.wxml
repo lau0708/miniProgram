@@ -5,7 +5,7 @@
   </block> -->
   <!-- 头部第一部分 -->
   <view class='one'>
-    <view class="head">
+    <view class="head"  style="background:url('{{arr[0].foods[0].image}}'); background-size:100%;">
       <view class='yi'>
         <view class='headLeft'>
           <view>

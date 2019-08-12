@@ -15,7 +15,9 @@ Page({
     navActive: "", // 导航栏选中id
     display: "", //控制遮罩层
     //遮罩层数据
-    zhelist: []
+    zhelist: [],
+    //商家背景图片
+    bgimg:''
   },
   switch(e) {
     this.setData({
@@ -43,6 +45,7 @@ Page({
       });
     }
   },
+  
   // 遮罩显示
   show: function() {
     this.setData({
@@ -69,7 +72,7 @@ Page({
     var that = this;
     good.getList().then(res => {
       var list = res.goods;
-      console.log(list);
+      // console.log(list);
       for (var i in list) {
         list[i].id = i;
       }
@@ -85,9 +88,9 @@ Page({
       // console.log(query.selectAll('.mingzi').boundingClientRect())
       //选择id
       query.selectAll(".mingzi").boundingClientRect();
-      console.log(query);
+      // console.log(query);
       query.exec(function(res) {
-        console.log(res);
+        // console.log(res);
         //res就是 所有标签为con-list的元素的信息 的数组
         res[0].forEach(item => {
           h += item.height;
@@ -96,7 +99,7 @@ Page({
         _this.setData({
           heightArr: heightArr
         });
-        console.log(heightArr);
+        // console.log(heightArr);
       });
     });
   },
@@ -113,7 +116,8 @@ Page({
     //遮罩层数据
     good.zheList().then(res => {
       var list = res.seller;
-      console.log(list);
+      var img = res.seller.avatar;
+      console.log(img);
       this.setData({
         zhelist: list
       });
@@ -122,8 +126,8 @@ Page({
   onScroll: function(e) {
     const scrollTop = e.detail.scrollTop;
     const scorllArr = this.data.heightArr;
-    console.log("gundong", scrollTop);
-    console.log("Arr", scorllArr);
+    // console.log("gundong", scrollTop);
+    // console.log("Arr", scorllArr);
 
     const _this = this;
     if (
@@ -148,7 +152,7 @@ Page({
               lastActive: i
             });
           }
-          console.log(this.data.navActive);
+          // console.log(this.data.navActive);
         }
       }
     }
@@ -158,7 +162,7 @@ Page({
     wx.navigateTo({
       url: "shop/shop",
       success: function() {
-        console.log("132");
+        // console.log("132");
       }
     });
   }
