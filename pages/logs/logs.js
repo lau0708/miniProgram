@@ -1,9 +1,7 @@
 //logs.js
 const util = require("../../utils/util.js");
 //http.js
-import {
-  GoodsModel
-} from "../../models/goods.js";
+import { GoodsModel } from "../../models/goods.js";
 let good = new GoodsModel();
 
 Page({
@@ -22,44 +20,43 @@ Page({
     shopdialog: false,
     shopdetail: [],
     //商家背景图片
-    bgimg:''
+    bgimg: ""
   },
   //购物车遮罩层显示隐藏
   shopDialogShow: function(e) {
     this.setData({
       shopdialog: true
-    })
+    });
     console.log(e.currentTarget.dataset.id);
     var id = e.currentTarget.dataset.id;
     var arr = this.data.arr;
     var shopdetail = this.data.shopdetail;
     for (var i in arr) {
       for (var j in arr[i].foods) {
-        arr[i].foods[j].num=1;
+        arr[i].foods[j].num = 1;
         if (id == arr[i].foods[j].id) {
-          console.log("相同")
+          console.log("相同");
           shopdetail.push(arr[i].foods[j]);
           this.setData({
             shopdetail: shopdetail
-          })
+          });
         }
       }
-
     }
 
-    console.log(this.data.shopdetail)
-    wx.setStorageSync("shopdetail",this.data.shopdetail);
+    console.log(this.data.shopdetail);
+    wx.setStorageSync("shopdetail", this.data.shopdetail);
     // 调用子组件中methods的onshow方法
     // this.selectComponent('#shopshow').onshow()
   },
   // 获取子组件信息
   toggleToast(e) {
-    console.log(e.detail)
+    console.log(e.detail);
     this.setData({
       shopdialog: e.detail.shopdialog
-    })
+    });
   },
-  switch (e) {
+  switch(e) {
     this.setData({
       num: e.target.dataset.num
     });
@@ -85,7 +82,7 @@ Page({
       });
     }
   },
-  
+
   // 遮罩显示
   show: function() {
     this.setData({
@@ -130,13 +127,10 @@ Page({
       //创建节点选择器
       const query = wx.createSelectorQuery();
       //选择id
-<<<<<<< HEAD
       query.selectAll(".con-list").boundingClientRect();
       console.log(query);
-=======
       query.selectAll(".mingzi").boundingClientRect();
       // console.log(query);
->>>>>>> origin/master
       query.exec(function(res) {
         // console.log(res);
         //res就是 所有标签为con-list的元素的信息 的数组
@@ -199,18 +193,15 @@ Page({
               lastActive: i
             });
           }
-<<<<<<< HEAD
-=======
           // console.log(this.data.navActive);
->>>>>>> origin/master
         }
       }
     }
   },
   //事件处理函数
   detailtap: function(e) {
-    console.log(e)
-    var id = e.currentTarget.dataset
+    console.log(e);
+    var id = e.currentTarget.dataset;
     wx.navigateTo({
       url: "../detail/detail",
       success: function() {
