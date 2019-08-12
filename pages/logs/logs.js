@@ -1,7 +1,9 @@
 //logs.js
 const util = require("../../utils/util.js");
 //http.js
-import { GoodsModel } from "../../models/goods.js";
+import {
+  GoodsModel
+} from "../../models/goods.js";
 let good = new GoodsModel();
 
 Page({
@@ -15,9 +17,47 @@ Page({
     navActive: "", // 导航栏选中id
     display: "", //控制遮罩层
     //遮罩层数据
-    zhelist: []
+    zhelist: [],
+    navActive: 0,
+    shopdialog: false,
+    shopdetail: []
   },
-  switch(e) {
+  //购物车遮罩层显示隐藏
+  shopDialogShow: function(e) {
+    this.setData({
+      shopdialog: true
+    })
+    console.log(e.currentTarget.dataset.id);
+    var id = e.currentTarget.dataset.id;
+    var arr = this.data.arr;
+    var shopdetail = this.data.shopdetail;
+    for (var i in arr) {
+      for (var j in arr[i].foods) {
+        arr[i].foods[j].num=1;
+        if (id == arr[i].foods[j].id) {
+          console.log("相同")
+          shopdetail.push(arr[i].foods[j]);
+          this.setData({
+            shopdetail: shopdetail
+          })
+        }
+      }
+
+    }
+
+    console.log(this.data.shopdetail)
+    wx.setStorageSync("shopdetail",this.data.shopdetail);
+    // 调用子组件中methods的onshow方法
+    // this.selectComponent('#shopshow').onshow()
+  },
+  // 获取子组件信息
+  toggleToast(e) {
+    console.log(e.detail)
+    this.setData({
+      shopdialog: e.detail.shopdialog
+    })
+  },
+  switch (e) {
     this.setData({
       num: e.target.dataset.num
     });
@@ -72,7 +112,11 @@ Page({
       console.log(list);
       for (var i in list) {
         list[i].id = i;
+        for (var j in list[i].foods) {
+          list[i].foods[j].id = i + j;
+        }
       }
+
       this.setData({
         arr: list
       });
@@ -82,9 +126,8 @@ Page({
       var _this = this;
       //创建节点选择器
       const query = wx.createSelectorQuery();
-      // console.log(query.selectAll('.mingzi').boundingClientRect())
       //选择id
-      query.selectAll(".mingzi").boundingClientRect();
+      query.selectAll(".con-list").boundingClientRect();
       console.log(query);
       query.exec(function(res) {
         console.log(res);
@@ -122,15 +165,14 @@ Page({
   onScroll: function(e) {
     const scrollTop = e.detail.scrollTop;
     const scorllArr = this.data.heightArr;
-    console.log("gundong", scrollTop);
-    console.log("Arr", scorllArr);
+    // console.log("gundong", scrollTop);
+    // console.log("Arr", scorllArr);
 
     const _this = this;
     if (
       scrollTop >=
       scorllArr[scorllArr.length - 1] - _this.data.conHeight / 2
     ) {
-      console.log("返回");
       return;
     } else {
       for (let i = 0; i < scorllArr.length; i++) {
@@ -148,15 +190,16 @@ Page({
               lastActive: i
             });
           }
-          console.log(this.data.navActive);
         }
       }
     }
   },
   //事件处理函数
-  bindViewTap: function() {
+  detailtap: function(e) {
+    console.log(e)
+    var id = e.currentTarget.dataset
     wx.navigateTo({
-      url: "shop/shop",
+      url: "../detail/detail",
       success: function() {
         console.log("132");
       }

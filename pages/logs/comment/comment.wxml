@@ -25,7 +25,8 @@
         <image src="../../../assets/img/star36_on@2x.png"></image>
         <text class='txt2'>5.0</text>
       </view>
-      <view>送达时间
+      <view>
+      <text class="daoda-txt">送达时间</text>
         <text class='daoda-time'>44分钟</text>
       </view>
     </view>

@@ -57,17 +57,17 @@
     <view class="content">
       <view class='wrap'>
         <scroll-view scroll-y="true" style='height:{{conHeight}}rpx;' scroll-into-view="{{contentActive}}" scroll-with-animation="true"      bindscroll="onScroll">
-          <view class="con-right">
+          <view class="con-right" >
             <view class="con-list" wx:for="{{arr}}" wx:for-item="item" wx:key="index" wx:for-index="index">
               <view class="con-title" id='type{{index}}'>{{item.name}}</view>
               <view class="shop-list" wx:for="{{item.foods}}" wx:for-item="val" wx:key="index">
-                <view class="left-tu">
+                <view class="left-tu" bindtap="detailtap" open-type="navigateTo">
                   <image class="img" src="{{val.image}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
                 </view>
                 <view class="right-list" hover-class="none" hover-stop-propagation="false">
-                  <view class="list-title">{{val.name}}</view>
-                  <view class="desc">{{val.description}}</view>
-                  <view class="">
+                  <view class="list-title" bindtap="detailtap" open-type="navigateTo">{{val.name}}</view>
+                  <view class="desc" bindtap="detailtap" open-type="navigateTo">{{val.description}}</view>
+                  <view class="" bindtap="detailtap" open-type="navigateTo">
                     <text class="yueshou">月售{{val.sellCount}}份</text>
                     <text class="haoping">好评率{{val.rating}}%</text>
                   </view>
@@ -75,7 +75,7 @@
                     <text class="price-txt1">￥</text>
                     <text class="price-txt2">{{val.price}}</text>
                     <text class="price-txt3" wx:if="{{val.oldPrice}}">￥{{val.oldPrice}}</text>
-                    <text class="jia">+</text>
+                    <text class="jia" bindtap="shopDialogShow" data-id="{{val.id}}" id="{{val.id}}">+</text>
                   </view>
                 </view>
               </view>
@@ -97,8 +97,10 @@
     </view>
     <view class="foot-Right">20元起送</view>
   </view>
+  <!-- 购物车遮罩 -->
+  <dialog id="shopshow" default-value="{{shopdialog}}" wx:if="{{shopdialog}}" phone="{{shopdetail}}"
+bind:myevent="toggleToast"></dialog>
   <!-- 遮罩 -->
-
 </view>
   <view class="zhezhao" style="display:{{display}}">
       <view class='zhezhao-bg'></view>

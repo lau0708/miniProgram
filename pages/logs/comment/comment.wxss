@@ -20,6 +20,7 @@ text-align: center;
 }
 .yi-right .txt1{
   margin-right:24rpx;
+  font-size:30rpx;
 }
 .yi-right .txt2{
   color: #ffa126;
@@ -28,6 +29,9 @@ text-align: center;
 .dier{
   margin-top:6rpx;
   margin-bottom:6rpx;
+}
+.daoda-txt{
+  font-size:30rpx;
 }
 .daoda-time{
   font-size:24rpx;

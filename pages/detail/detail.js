@@ -31,11 +31,17 @@ Page({
   onLoad: function (options) {
     var that =this;
     goodsModel.goodsList().then(res => {
-      console.log(res.goods[0].foods[0])
+      // console.log(res.goods[0].foods[0])
       let arr = res.goods[0].foods[0]
       let ping = res.goods[0].foods[0].ratings
-      this.setData({detail:arr});
-      this.setData({pingjia:ping})
+      this.setData({
+        arr:res.goods,
+        detail: arr,
+        pingjia: ping
+      })
+      console.log(res.goods);
+      // this.setData({detail:arr});
+      // this.setData({pingjia:ping})
    
   
     })

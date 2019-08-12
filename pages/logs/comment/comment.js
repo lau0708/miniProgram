@@ -18,7 +18,7 @@ Component({
       this.setData({
         list:res.ratings
       })
-      console.log(this.data.list)
+      // console.log(this.data.list)
     });
   },
   attached: function() {},

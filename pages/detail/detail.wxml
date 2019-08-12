@@ -99,6 +99,15 @@
     </view>
     <!-- 内容闭合 -->
   </view>
-  <view class='footer'>footer</view>
-
+  <!-- 尾部 -->
+   <view class='footer'>
+    <view class='shopicon'>
+      <icon class='fa fa-shopping-cart'></icon>
+    </view>
+    <view class="foot-Left">
+      <view class='price'>￥0</view>
+      <view class="peiyunfei">另需配运费4元</view>
+    </view>
+    <view class="foot-Right">20元起送</view>
+  </view>
 </view>

@@ -1,0 +1,25 @@
+<!--pages/logs/dialog.wxml-->
+<view class="shopcartyin">
+ <view class="yin" bindtap="yin"></view>
+  <view class="cart">
+  <view class="cart-yi">
+     <view class="shopcart">购物车</view>
+     <view class="empty">清空</view>
+  </view>
+  <view class="list">
+      <view class="list-yi" wx:for="{{shopdetail}}" wx:item="item" wx:key="index">
+          <view class="one">{{item.name}}</view>
+          <view class="two">
+            <view class="two-yi">￥{{item.price}}</view>
+            <view class="two-er">
+              <view class="jian" bindtap="jian" data-id="{{item.id}}" id="{{item.id}}">-</view>
+              <view class="num">{{item.num}}</view>
+              <view class="jia" bindtap="jia" data-id="{{item.id}}" id="{{item.id}}">+</view>
+            </view>     
+          </view>
+      </view>
+  </view>
+
+  </view>
+
+</view>

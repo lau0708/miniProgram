@@ -8,7 +8,7 @@ merchant.merchant().then(res=>{
   this.setData({
     list:res.seller
   })
-  console.log(this.data.list)
+  // console.log(this.data.list)
 })
   },
   /**
